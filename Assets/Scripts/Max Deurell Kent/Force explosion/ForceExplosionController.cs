@@ -6,22 +6,17 @@ using UnityEngine;
 public class ForceExplosionController : MonoBehaviour
 {
     public bool offCooldown = true;
-    [SerializeField] private Transform player;
+    [SerializeField] private YouWin winScript;
     [SerializeField] private GameObject forceExplosion;
     void Update()
     {
-        
-        
-        
-        if (Input.GetKeyDown(KeyCode.Mouse0) && offCooldown)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && offCooldown && !winScript.win)
         {
-            
             StartCoroutine(Explosion());
         }
-        
     }
 
-    IEnumerator Explosion()
+    public IEnumerator Explosion()
     {
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = worldPosition;
