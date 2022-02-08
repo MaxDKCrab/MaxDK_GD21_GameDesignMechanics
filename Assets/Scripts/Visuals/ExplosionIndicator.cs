@@ -7,17 +7,8 @@ using UnityEngine.UI;
 
 public class ExplosionIndicator : MonoBehaviour
 {
-   
-    private void Start()
-    {
-       
-        Cursor.visible = false;
-       
-    }
-
     private void Update()
     {
         transform.position = Input.mousePosition;
-       
     }
 }

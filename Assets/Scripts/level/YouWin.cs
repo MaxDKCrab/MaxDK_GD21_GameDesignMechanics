@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class YouWin : MonoBehaviour
 {
+    [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject timerWindow;
     public bool win = false;
     private Rigidbody2D rb;
     
@@ -16,6 +18,9 @@ public class YouWin : MonoBehaviour
             Vector2 floatAway = player.transform.position;
             floatAway.y += 0.10f;
             rb.MovePosition(floatAway);
+            winScreen.SetActive(true);
+            timerWindow.SetActive(false);
+            Cursor.visible = true;
         }
     }
 

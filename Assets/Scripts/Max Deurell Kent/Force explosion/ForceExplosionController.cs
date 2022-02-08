@@ -8,6 +8,13 @@ public class ForceExplosionController : MonoBehaviour
     public bool offCooldown = true;
     [SerializeField] private YouWin winScript;
     [SerializeField] private GameObject forceExplosion;
+
+    private void Awake()
+    {
+        Debug.Log("it was me!");
+        Cursor.visible = false;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && offCooldown && !winScript.win)
