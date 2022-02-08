@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForceExplosion : MonoBehaviour
+public class ForceImplosion : MonoBehaviour
 {
-    [SerializeField] private Animator explosionAnim;
+    [SerializeField] private Animator implosionAnim;
     [SerializeField] private float animationTime;
     [SerializeField] private float explosionForce;
     private GameObject player;
@@ -19,15 +19,14 @@ public class ForceExplosion : MonoBehaviour
         Vector2 playerPos = player.transform.position;
         Vector2 explosionPos = transform.position;
         distance = Vector2.Distance(explosionPos, playerPos);
-        direction = (playerPos - explosionPos).normalized;
+        direction = (explosionPos - playerPos).normalized;
         playerRb = player.GetComponent<Rigidbody2D>();
         StartCoroutine(Explode());
     }
 
     IEnumerator Explode()
     {
-        
-        explosionAnim.SetTrigger("Explode");
+        implosionAnim.SetTrigger("Implode");
         yield return new WaitForSeconds(animationTime);
         Destroy(gameObject);
     }
@@ -35,6 +34,6 @@ public class ForceExplosion : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (!col == player) return;
-        playerRb.AddForce(direction / distance * explosionForce);
+        playerRb.AddForce(direction * distance * explosionForce);
     }
 }

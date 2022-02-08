@@ -11,8 +11,14 @@ public class MenuToggle : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            mainMenu.SetActive(!mainMenu.activeSelf);
-            Cursor.visible = !Cursor.visible;
+            ToggleMenu();
         }
     }
+
+    public void ToggleMenu()
+    {
+        mainMenu.SetActive(!mainMenu.activeSelf);
+        Cursor.visible = !Cursor.visible;
+    }
+    
 }

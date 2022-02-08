@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForceExplosionController : MonoBehaviour
+public class ForceImplosionController : MonoBehaviour
 {
     public bool offCooldown = true;
     [SerializeField] private YouWin winScript;
-    [SerializeField] private GameObject forceExplosion;
+    [SerializeField] private GameObject forceImplosion;
 
     private void Awake()
     {
@@ -27,7 +27,7 @@ public class ForceExplosionController : MonoBehaviour
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = worldPosition;
         offCooldown = false;
-        Instantiate(forceExplosion, transform);
+        Instantiate(forceImplosion, transform);
         yield return new WaitForSeconds(1f);
         offCooldown = true;
     }
