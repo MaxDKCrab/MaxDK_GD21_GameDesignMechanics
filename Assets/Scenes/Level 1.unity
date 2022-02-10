@@ -2225,6 +2225,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 999969850}
+    - target: {fileID: 260001635634530526, guid: 5d3c67a8d5692e74f95b46e5acef7331, type: 3}
+      propertyPath: m_text
+      value: 'You Win!
+
+
+        You finished level 1 in this time
+
+
+        But
+        can you do it faster????? :D'
+      objectReference: {fileID: 0}
+    - target: {fileID: 260001635996054796, guid: 5d3c67a8d5692e74f95b46e5acef7331, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 260001636147151712, guid: 5d3c67a8d5692e74f95b46e5acef7331, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

@@ -9,10 +9,11 @@ public class ForceExplosion : MonoBehaviour
     [SerializeField] private float animationTime;
     [SerializeField] private float explosionForce;
     private GameObject player;
-    private float distance;
+    public float distance;
     private Rigidbody2D playerRb;
     private Vector2 direction;
-    
+    private bool hasHitPlayer = false;
+
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -26,7 +27,6 @@ public class ForceExplosion : MonoBehaviour
 
     IEnumerator Explode()
     {
-        
         explosionAnim.SetTrigger("Explode");
         yield return new WaitForSeconds(animationTime);
         Destroy(gameObject);
@@ -34,7 +34,8 @@ public class ForceExplosion : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (!col == player) return;
+        if (!col == player && !hasHitPlayer) return;
+        hasHitPlayer = true;
         playerRb.AddForce(direction / distance * explosionForce);
     }
 }

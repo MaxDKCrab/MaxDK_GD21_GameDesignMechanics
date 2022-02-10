@@ -138,3 +138,4 @@ MonoBehaviour:
   explosionAnim: {fileID: 3369274011992614850}
   animationTime: 0.625
   explosionForce: 300
+  distance: 0
